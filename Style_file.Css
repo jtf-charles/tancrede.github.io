@@ -1,0 +1,796 @@
+/* Reset CSS *****************************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+:root {
+  --main-color: #8B2C2C;       /* Rouge bordeaux */
+  --accent-color: #C9B37F;     /* Or doux */
+  --bg-color: #DDE6F0;         /* Bleu-gris clair */
+  --text-color: #1A1A1A;       /* Gris anthracite */
+  --secondary-bg: #E3C6B1;     /* Beige rosé */
+  --highlight-color: #5C3A2D;  /* Brun chaud */
+  --font-main: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 16px; /* Base font size */
+}
+/* Fin reset et propriétés racines */
+
+html {
+  scroll-behavior: smooth;
+}
+/* STRUCTURE DE BASE header***************************************************************************/
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.15rem 1rem;
+  background-color: var(--main-color);
+  color: white;
+  position:fixed; /* important pour positionner navbar en absolute */
+  z-index: 1000;
+  width: 100%;
+  top:0px;
+
+    /* la ligne blanche au bas du header */
+  border-bottom: 0.08rem solid white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size:2vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+/* CACHER CHECKBOX */
+.menu-toggle {
+  display: none;
+}
+
+/* STYLE MENU ICON */
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+.navbar a:hover {
+  background-color: white;
+  color: var(--main-color);
+  transform: scale(1.1); /* Agrandit sans affecter les autres */
+   border-radius: 5%;
+   width: 100%;
+   text-align: center;
+}
+/* RESPONSIVE */
+@media (max-width: 948px) {
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top:0.1rem;
+    right: 1rem;
+    z-index: 1100;
+    border: 0.0001rem solid rgb(148, 147, 147);
+    padding: 0.1rem 0.5rem
+  }
+
+.menu-icon:hover {
+    background-color: rgb(161, 50, 50);
+    transition: 0.3s;
+  }
+
+  .navbar {
+    display: none;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0rem 1rem 1rem;
+    background-color: var(--main-color);
+    z-index: 1000;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menu-toggle:checked + .menu-icon + .navbar{
+    display: flex;
+  }
+}
+
+
+/* Banner section  ******************************************************************/
+
+#banner {
+  background:#8B2C2C; /* ou une image de fond si tu veux */
+   width: 100%;
+  margin-top: 3.8rem; /* pour compenser le header fixe */
+
+}
+
+.content-banner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+  /* max-width: 1200px;
+  margin: 0 auto; */
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 80vh;
+  padding:1vh;
+  /* background-color:aqua;   */
+}
+
+/* Image de profil */
+
+.Profil {
+  /* background-color: yellow;  */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+  width: 60vh;
+  height: auto;
+  padding: 2rem 2rem;  
+} 
+
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: var(--main-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); */
+}
+
+.social-links a:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.profile-image {
+  width: 100%;
+  border-radius: 50%;
+  height:auto;
+  object-fit: cover;
+  /* border: 4px solid var(--accent-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);  */
+}
+
+/* Texte d’intro */
+.infos {
+  /* background-color: yellowgreen; */
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 70vh;
+}
+
+
+.infos h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: wheat;
+font-family: 'Poppins', sans-serif;
+
+
+
+}
+
+.infos p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  line-height: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  background-color: white;
+  color: var(--main-color);
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  /* margin-right: 1rem; */
+  transition: background-color 0.3s;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+}
+/* RESPONSIVE BANNER */
+@media (max-width: 995px) {
+    .infos{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: center;
+        height: auto;
+        text-align: center;
+        /* width: 100%; */
+        /* background-color:#1c3653; */
+        padding: 0rem 0rem;
+        margin: 0rem 0rem;
+    }
+
+    .infos ,h1, p{
+        text-align: center;
+        justify-content: center;
+    }
+
+    .infos h1{
+        font-size: 1.6rem;
+    }
+
+    .infos p{
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-weight: bold;
+        font-size: 0.7rem;
+    
+    }
+    .btn-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        width: 70%;
+        margin-bottom: 1rem;
+    }
+   
+}
+
+
+
+/* About Section */
+/* .about-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content:space-evenly;
+  padding: 1.2rem 3rem;
+  gap: 4rem;
+  background-color: #f8f8f8;
+  flex-wrap: wrap;
+}
+
+.about-image img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.about-header .icone{
+  padding: 1rem;
+}
+/* Responsive image */
+@media (max-width: 768px) {
+  .about-image img {
+    width: 250px;
+    height: auto;
+    
+  } 
+  .about-text p{
+    padding: 0rem;
+  }
+
+  .about-container{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+}
+
+.about-text {
+  max-width: 600px;
+  color: #1c1c1c;
+}
+
+.about-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+.about-text p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  font-size: clamp(1rem, 0.1vw, 1.1rem);
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+  border-left: 1rem solid var(--main-color);
+  padding-left: 1rem 
+}
+
+
+
+
+/* header in about section */
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  margin: 1.5rem 1.5rem;
+  background-color:#E3C6B1;
+}
+
+.about-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: var(--main-color);
+  font-size: clamp(1.8rem, 4vw, 3.5rem); /* 👈 taille responsive */
+  margin: 0;
+  padding-bottom: 0.5rem;
+  
+}
+
+.underline {
+  width: 6rem;
+  height: 0.3rem;
+  background-color: var(--main-color);
+  border-radius: 2px;
+}
+
+
+/* Skills section ***************************************************************************/
+/* Section globale */
+/* Section globale */
+#skills {
+  background-color: #8c2e2e;  /* Bordeaux adapté */
+  color: #ffffff;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+#skills .underline {
+  width: 6rem;
+  height: 0.3rem;
+  background-color:white;
+  border-radius: 2px;
+  margin: auto;
+  margin-bottom: 1.5rem ;
+}
+#skills h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 2vw, 3.5rem); /* 👈 taille responsive */
+  margin: 0;
+  padding-bottom: 1.8rem;
+}
+
+/* Container des cartes */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Style de chaque carte */
+.skill-card {
+  background-color: #1c1c1c;
+  /* border: 2px solid #00c0f0; */
+  border: 2px solid #C9B37F;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 0 12px rgba(0, 192, 240, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Effet au survol */
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.25);
+}
+
+/* Icône */
+.skill-card i {
+  font-size: 2.5rem;
+  /* color: #00c0f0; */
+  color:#C9B37F;
+  margin-bottom: 2rem;
+}
+
+/* Titre */
+.skill-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+/* Lien "Voir plus" */
+.skill-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  /* color: #00c0f0; */
+  color:cadetblue;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: color 0.3s, transform 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+.skill-link:hover {
+  color: #00ffcc;
+  transform: translateX(3px);
+  /* border-bottom: 1px solid #00ffcc; */
+   border-bottom: 1px solid #C9B37F;
+}
+
+
+
+/* experiences section **************************************************************************/
+/* SECTION GLOBALE */
+#experience {
+  /* background-color: #f5f7fa; */
+  background-color:white;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
+  color: #1c1c1c;
+}
+
+#experience .underline {
+  width: 6rem;
+  height: 0.3rem;
+  border-radius: 2px;
+  margin: auto;
+  margin-bottom: 1.5rem ;
+}
+
+
+#experience h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color:#8c2e2e;
+  font-size: 2.2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* CONTAINER FLEX */
+.experience-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2rem);
+  justify-content: center;
+}
+
+/* CARTE D’EXPÉRIENCE */
+.experience-card {
+  /* background-color: #ffffff; */
+ background:#e9ecef ;
+  border-radius: 12px;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  flex: 1 1 clamp(280px, 45%, 400px);  /* carte responsive */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* EN-TÊTE : LOGO + NOM */
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.experience-logo {
+  width: clamp(40px, 8vw, 60px);
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* NOM INSTITUTION */
+.experience-header h3 {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 600;
+  /* color: #1a1a1a; */
+  color:#8c2e2e;
+  margin: 0;
+}
+
+/* TITRE DU POSTE */
+.job-title {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 500;
+  /* color: #444; */
+  color: #8c2e2e;
+  margin: 0.2rem 0;
+}
+
+/* DATES */
+.experience-date {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+/* LIEN "Voir plus" */
+.experience-link {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: #0066ff;
+  font-weight: 500;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: auto;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.experience-link:hover {
+  color: #004bb1;
+  border-bottom: 1px solid #004bb1;
+}
+
+
+
+
+/* Education section */
+/* SECTION EDUCATION */
+#education {
+  background-color:#8c2e2e;
+  padding: clamp(2rem, 5vw, 4rem);
+  color: white;
+}
+
+#education h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#education .underline {
+  width: 60px;
+  height: 4px;
+  background-color:white;
+  margin: 0 auto clamp(2rem, 3vw, 2.5rem);
+  border-radius: 2px;
+}
+
+/* GRID FLEXIBLE */
+.education-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2rem);
+  justify-content: center;
+}
+
+/* CARTE INDIVIDUELLE */
+.education-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  flex: 1 1 clamp(280px, 45%, 400px);  /* responsive */
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* EN-TÊTE : LOGO + NOM ÉCOLE */
+.education-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
+}
+
+.education-logo {
+  width: clamp(40px, 8vw, 60px);
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+/* NOM ÉCOLE */
+.education-header h3 {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 600;
+  margin: 0;
+  color:#8c2e2e;
+}
+
+/* DIPLÔME OU FORMATION */
+.education-degree {
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 500;
+  /* color: #444; */
+  color:#8c2e2e;
+  margin: 0;
+}
+
+/* DATES */
+.education-date {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+/* LIEN "VOIR PLUS" */
+.education-link {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: #0077cc;
+  font-weight: 500;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: auto;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.education-link:hover {
+  color: #005fa3;
+  border-bottom: 1px solid #005fa3;
+}
+
+
+/* Footer section ***************************************************************/
+.site-footer {
+  background-color: #e9ecef ;
+  color: #1c1c1c;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 6vw, 3rem);
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(28, 28, 28, 0.2);
+  padding-bottom: 2rem;
+}
+
+.footer-info h3 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-bottom: 0.5rem;
+  color: #1c1c1c;
+}
+
+.footer-info p,
+.footer-info a {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-social h4 {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 0.7rem;
+  color: #1c1c1c;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #003366;
+  font-size: 1.4rem;
+  transition: color 0.3s;
+}
+
+.mail a{
+color:#004bb1
+}
+.social-icons a:hover {
+  color: #1a75ff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
